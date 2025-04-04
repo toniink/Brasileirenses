@@ -1,6 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const db = require('./config/db');
+
+//Configura cors
+app.use(cors());
 
 // Configurar o middleware para ler JSON
 app.use(express.json());

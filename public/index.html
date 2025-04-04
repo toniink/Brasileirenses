@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Frontend</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background-color: #f4f4f4; }
+    form { margin-bottom: 20px; }
+    input, button { margin: 5px; padding: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Usuários</h1>
+
+  <!-- Formulário -->
+  <form id="formulario-usuario">
+    <input type="text" id="nome" placeholder="Nome" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="senha" placeholder="Senha" required>
+    <button type="button" onclick="salvarUsuario()">Salvar</button>
+    <button type="button" onclick="carregarUsuarios()">Buscar (GET)</button>
+  </form>
+<!--testecomentario-->
+
+  <!-- Tabela -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-usuarios">
+      <!-- Os dados serão inseridos aqui -->
+    </tbody>
+  </table>
+
+  <script>
+    // URL da API
+    const apiUrl = 'http://localhost:3000/usuarios';
+
+    // Função para buscar usuários e exibir na tabela
+    async function carregarUsuarios() {
+      const response = await fetch(apiUrl);
+      const usuarios = await response.json();
+
+      const tabela = document.getElementById('tabela-usuarios');
+      tabela.innerHTML = ''; // Limpa a tabela
+
+      usuarios.forEach(usuario => {
+        const linha = `
+          <tr>
+            <td>${usuario.id}</td>
+            <td>${usuario.nome}</td>
+            <td>${usuario.email}</td>
+          </tr>
+        `;
+        tabela.innerHTML += linha;
+      });
+    }
+
+    // Função para salvar usuário (POST)
+    async function salvarUsuario() {
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      await fetch(apiUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, email, senha })
+      });
+
+      carregarUsuarios(); // Atualiza a tabela
+    }
+
+    // Carrega os usuários ao abrir a página
+    carregarUsuarios();
+  </script>
+</body>
+</html>
