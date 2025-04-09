@@ -43,7 +43,7 @@ Crie um arquivo `.env` na raiz do projeto e preencha com suas credenciais do MyS
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=suaSenhaAqui
-DB_NAME=sulphuratus
+DB_NAME=nomeDoBanco
 # DB_PORT=3306 (opcional)
 ```
 
@@ -82,7 +82,7 @@ brasileirenses/
 
 ## 🗃️ Banco de Dados
 
-- **Nome do banco:** `sulphuratus`
+- **Nome do banco:** `nomeDoBanco`
 - **Tabela principal:** `usuarios`
 
 ### Estrutura da tabela `usuarios`:
