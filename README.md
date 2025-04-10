@@ -1,22 +1,20 @@
-
-# 🇧🇷 Brasileirenses API
-
-API desenvolvida para estudo e prática de criação de servidores com Node.js, Express e integração com banco de dados MySQL. Permite operações completas com a tabela de usuários.
+# Brasileirenses API
+API desenvolvida para estudo e prática de criação de servidores com Node.js, Express e integração com banco de dados SQLite. Permite operações completas com a tabela de usuários.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
-
 - **Node.js** – Ambiente de execução JavaScript
+
 - **Express** – Framework para criação de APIs
-- **MySQL** – Banco de dados relacional
-- **dotenv** – Gerenciamento de variáveis de ambiente
-- **nodemon** – Ferramenta para desenvolvimento com reinicialização automática
+
+- **SQLite** – Banco de dados leve e relacional
+
+- **Git** – Controle de versão
 
 ---
 
 ## 📦 Instalação
-
 ### 1. Clone o repositório
 
 ```bash
@@ -24,40 +22,32 @@ git clone https://github.com/toniink/brasileirenses
 ```
 
 ### 2. Acesse a pasta do projeto
-
-```bash
+```
+bash
 cd brasileirenses
 ```
 
 ### 3. Instale as dependências
 
-```bash
+```
+bash
 npm install
 ```
 
-### 4. Configure o arquivo `.env`
-
-Crie um arquivo `.env` na raiz do projeto e preencha com suas credenciais do MySQL:
-
-```env
-DB_HOST=localhost
-DB_USER=root
-DB_PASSWORD=suaSenhaAqui
-DB_NAME=nomeDoBanco
-# DB_PORT=3306 (opcional)
+### 4. Inicie o servidor
+Execute o comando para iniciar o servidor:
 ```
-
-### 5. Inicie o servidor
-
-```bash
-npm run dev
+bash
+node server.js
 ```
-
 Se tudo estiver certo, a saída será:
 
 ```
+bash
 Servidor rodando na porta 3000
 ```
+
+Para acessar a interface web, abra o arquivo public/index.html diretamente no navegador.
 
 ---
 
@@ -66,33 +56,36 @@ Servidor rodando na porta 3000
 ```
 brasileirenses/
 │
-├── node_modules/
-├── src/
-│   ├── controllers/
-│   ├── routes/
-│   ├── models/
-│   └── server.js
+├── config/
+│   └── db.js            # Configuração do banco SQLite
 │
-├── .env
-├── package.json
-├── README.md
+├── node_modules/        # Dependências instaladas
+├── public/
+│   ├── index.html       # Página inicial
+│   ├── styles.css       # Estilos da interface
+│   ├── script.js        # Lógica da interface
+│
+├── .gitignore           # Arquivos ignorados pelo Git
+├── database.db          # Banco de dados SQLite
+├── package-lock.json    # Informações de dependências instaladas
+├── package.json         # Configurações do projeto
+├── README.md            # Documentação do projeto
+└── server.js            # Servidor com Node.js e Express
 ```
-
 ---
 
-## 🗃️ Banco de Dados
+### 🗃️ Banco de Dados
+- **Nome do banco**: `database.db`
 
-- **Nome do banco:** `nomeDoBanco`
-- **Tabela principal:** `usuarios`
+- **Tabela principal**: `usuarios`
 
 ### Estrutura da tabela `usuarios`:
-
 | Campo         | Tipo         | Descrição                          |
 |---------------|--------------|------------------------------------|
-| `id`          | INT          | Chave primária (auto incremento)  |
-| `nome`        | VARCHAR      | Nome do usuário                   |
-| `email`       | VARCHAR      | Email do usuário                  |
-| `senha`       | VARCHAR      | Senha do usuário (criptografada)  |
+| `id`          | INTEGER      | Chave primária (auto incremento)  |
+| `nome`        | TEXT         | Nome do usuário                   |
+| `email`       | TEXT         | Email do usuário                  |
+| `senha`       | TEXT         | Senha do usuário (criptografada)  |
 | `data_criacao`| DATETIME     | Data de criação do registro       |
 
 ---
@@ -109,30 +102,7 @@ brasileirenses/
 
 ---
 
-## 🧪 Testando com Thunder Client
+## 🧪 Inicialização e Teste
+Para inicializar o projeto e acessar a interface web, abra diretamente o arquivo public/index.html no navegador.
 
-1. Instale a extensão **Thunder Client** no VSCode.
-2. Crie uma nova requisição.
-3. Use os métodos **GET**, **POST**, **PUT** e **DELETE** com a URL:
-
-```http
-http://localhost:3000/usuarios
-```
-
-### Exemplo de corpo para POST ou PUT (JSON):
-
-```json
-{
-  "nome": "Exemplo da Silva",
-  "email": "exemplo@email.com",
-  "senha": "123456"
-}
-```
-
----
-
-## 👩‍💻 Desenvolvido por
-
-**Marcelle**  
-Estudante de Análise e Desenvolvimento de Sistemas  
-Em busca de crescimento na área de programação 🚀
+Teste a API diretamente no navegador ou use formulários da página web (index.html) para interagir com o backend.
