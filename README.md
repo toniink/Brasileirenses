@@ -107,9 +107,9 @@ Para inicializar o projeto e acessar a interface web, abra diretamente o arquivo
 
 Teste a API diretamente no navegador ou use formulários da página web (index.html) para interagir com o backend.
 
-👩‍💻 Desenvolvido por
-Antonio Carlos
-Estefane Rodrigues
-Graziely Vargas
-Lidia Pereira
-Marcele Rodrigues
+👩‍💻 Desenvolvido por:  
+Antonio Tavares  
+Estefane Rodrigues   
+Graziely Vargas  
+Lidia Pereira  
+Marcele Rodrigues  
